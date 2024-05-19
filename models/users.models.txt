@@ -1,0 +1,22 @@
+
+// ----------------------------------------------------------
+// FUNCIONES
+// ----------------------------------------------------------
+
+
+// FUNCION - FINDIDBYEMAIL_USER
+const findByEmail_User = async function(email)
+
+// FUNCION - FINDIDBYEMAIL_USER
+const ifExistEmail_User = async function(email)
+
+// FUNCION - FINDBYID_USER
+const findById_User = async function(id)
+
+// FUNCION - CREATE_USER
+const create_User = async function(user)
+
+// FUNCION - UPDATEBYID_USER
+const updateById_User = async function(id, user)
+
+export const usersModel = {findByEmail_User, ifExistEmail_User, findById_User, create_User, updateById_User };

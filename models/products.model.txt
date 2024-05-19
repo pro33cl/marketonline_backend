@@ -1,0 +1,17 @@
+
+
+// ----------------------------------------------------------
+// FUNCIONES
+// ----------------------------------------------------------
+
+// FUNCION - COUNTPAGES
+const countPages = async function (limit_V, filters_V)
+
+// FUNCION - FINDALLBYFILTERPAGINATION_PRODUCTS
+const findAllByFilterPagination_Products = async function (filters_V, pagination_V)
+
+// FUNCION - FINDBYFILTER_PRODUCTS
+const findById_Product = async function (id)
+
+
+export const productsModel = { findAllByFilterPagination_Products, findById_Product };

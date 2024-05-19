@@ -1,0 +1,115 @@
+
+{
+GET: http://localhost:3000/products/?orderby=id_ASC&limit=3&page=1
+
+body:
+header: 
+}
+
+{
+GET: http://localhost:3000/products/?category=camisa&search=ltn&orderby=id_ASC&limit=3&page=1
+
+body:
+header: 
+}
+
+{
+GET: http://localhost:3000/products/?category=pantalón&orderby=id_ASC&limit=3&page=1
+
+body:
+header: 
+}
+
+{
+GET: http://localhost:3000/products/?category=falda&orderby=id_ASC&limit=3&page=1
+
+body:
+header: 
+}
+
+{
+GET: http://localhost:3000/products/2
+
+body:
+header: 
+}
+
+
+{
+POST: http://localhost:3000/products/login/
+
+body:{"email": "pro33cl@yahoo.com", "password": "ClaveSecreta" }
+header: 
+}
+
+{
+POST: http://localhost:3000/products/register/
+
+body: {"email":"pro33cl@yahoo.com", "name": "Hector", "lastname": "Rubilar", "age": 38, "phone": "+56993398843", "password": "ClaveSecreta"}
+header: 
+}
+
+{
+POST: http://localhost:3000/products/register/
+
+body: {"email":"ruben@gmail.com", "name": "Ruben", "lastname": "Soto", "age": 65, "phone": "+56993398555", "password": "ClaveSecreta2"}
+header: 
+}
+
+{
+GET: http://localhost:3000/products/user/data
+
+body:
+header: bearer token
+}
+
+{
+PUT: http://localhost:3000/products/user/data
+
+body: {"email":"pro33cl@yahoo.com", "name": "Hector2", "lastname": "Rubilar2", "age": 38, "phone": "+56993398843", "password": "ClaveSecreta22"}
+
+header: bearer token
+}
+
+
+{
+GET: http://localhost:3000/products/user/sales/?page=1
+
+body:
+header: bearer token
+}
+
+
+{
+POST: http://localhost:3000/products/user/sales/
+
+body: {"name": "Falda Blanca", "image": "falda.jpg", "description": "Una falda muy bonita", "price": 17000, "category": "falda"}
+
+header: bearer token
+}
+
+{
+PUT: http://localhost:3000/products/user/sales/?sale_id=1
+
+body: {"name": "Falda Blanca", "image": "falda.jpg", "description": "Una falda muy bonita", "price": 17000, "category": "falda"}
+
+header: bearer token
+}
+
+{
+PUT: http://localhost:3000/products/user/sales/?sale_id=1
+
+body:
+
+header: bearer token
+}
+
+{
+POST: http://localhost:3000/productimage/1
+
+body: 
+
+header: bearer token
+}
+
+

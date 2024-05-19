@@ -1,0 +1,28 @@
+
+// ----------------------------------------------------------
+// FUNCIONES
+// ----------------------------------------------------------
+
+
+// FUNCION - FINDIDCATEGORYBYSALE
+const findIdCategoryBySale_Sales = async function(sale)
+
+// FUNCION - FINDALLBYID_SALES
+const findAllById_Sales = async function(id_seller)
+
+// FUNCION - FINDALLBYIDPAGINATION_SALES
+const findAllByIdPagination_Sales = async function(id_seller, pagination_V)
+
+// FUNCION - FINBYID_SALE
+const findById_Sale = async function(id)
+
+// FUNCION - CREATEBYID_SALE
+const createById_Sale = async function(id_seller, sale)
+
+// FUNCION - UPDATEBYID_SALE
+const updateById_Sale = async function(id, sale)
+
+// FUNCION - REMOVEBYID_SALE
+const removeById_Sale = async function(id)
+
+export const salesModel = {findAllById_Sales, findAllByIdPagination_Sales, findById_Sale, createById_Sale , updateById_Sale, removeById_Sale};
