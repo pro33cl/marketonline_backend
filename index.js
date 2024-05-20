@@ -14,6 +14,7 @@ import appRoute from "./routes/app.routes.js";
 const app = express();
 const SERVER = process.env.SERVER || "http://localhost:";
 const PORT = process.env.PORT || 3000;
+const URLFRONTEND = process.env.FRONTEND_URL || "http://localhost:5173/";
 
 // ----------------------------------------------------------
 // MIDDLEWARES
@@ -21,7 +22,7 @@ const PORT = process.env.PORT || 3000;
 
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({origin: URLFRONTEND,}));
 app.use("/", appRoute);
 
 
