@@ -19,9 +19,7 @@ const findById_User = async function(req, res){
         console.log("users.controller.findById_User: Start");
         const Authorization = await req.header("Authorization");
         const token = Authorization.split(" ")[1];
-        console.log(token);
         const {user_id, user_email} = jwt.decode(token);
-        console.log(user_id);
         const user = await usersModel.findById_User(user_id);
 
         if(!user){
@@ -52,7 +50,6 @@ const create_User = async function(req, res){
 
         console.log("users.controller.create_User: Start");
         const user = await req.body;
-        console.log(user);
         let newUser;
 
         if(!user){
@@ -102,16 +99,10 @@ const updateById_User = async function(req, res){
 
         console.log("users.controller.updatedById_User: Start");
         const Authorization = await req.header("Authorization");
-        console.log("Mostrando la Authorization :"+Authorization);
         const token = Authorization.split(" ")[1];
         const {user_id, user_email} = jwt.decode(token);
-        console.log("user_id :"+user_id);
         const user = await req.body;
         let newUser;
-
-        console.log(user);
-
-        console.log(user.password);
 
         if(!user){
 
@@ -126,7 +117,6 @@ const updateById_User = async function(req, res){
 
             }else{
 
-                console.log("entró acá");
                 newUser = {email: user.email, name: user.name, lastname: user.lastname, age: user.age, phone: user.phone};
             }   
         }

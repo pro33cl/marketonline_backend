@@ -36,7 +36,7 @@ const countPages_Sales = async function(id_seller){
     const { rows} = await pool.query(formattedQuery);
     const total_rows = parseInt(rows[0].count, 10);
     const total_pages = limit > 0 ? Math.ceil(total_rows / limit) : 1;
-    console.log("sales.model.countPages_Sales: Start");
+    console.log("sales.model.countPages_Sales: End");
     return total_pages;
 }
 
@@ -115,7 +115,7 @@ const findById_Sale = async function(id){
     const values = id;
     const formattedQuery = format(query, values);
     const {rows} = await pool.query(formattedQuery);
-    console.log("sales.model.findById_Sale: Start");
+    console.log("sales.model.findById_Sale: End");
     return rows[0];
 } 
 

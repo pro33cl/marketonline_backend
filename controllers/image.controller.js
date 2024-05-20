@@ -4,7 +4,6 @@
 
 import "dotenv/config";
 import jwt from "jsonwebtoken";
-import { imageModel } from "../models/image.model.js";
 import { productsModel } from "../models/products.model.js";
 import multer from 'multer';
 import {dirname, extname, join} from 'path';
@@ -98,7 +97,6 @@ const autorization_Image = async function(req, res, next){
         const token = Authorization.split(" ")[1];
         const {user_id, user_email} = jwt.decode(token);
         const sale_exist = await productsModel.findById_Product(sale_id);
-        console.log(sale_exist);
     
         if(user_id == sale_exist.id_seller){
     
@@ -131,8 +129,6 @@ const post_Image = async function(req, res){
         const file = await req.file;
         let sale_exist;
         let sale_updated;
-
-        console.log(file);
 
         if(file){
 

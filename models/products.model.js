@@ -25,9 +25,6 @@ const countPages = async function (limit_V, filters_V) {
     let total_rows;
     let total_pages;
 
-    console.log("category :"+category);
-    console.log("search :"+search);
-
     if (category || search) {
 
         query = 'SELECT COUNT(*) FROM products WHERE';
@@ -62,7 +59,6 @@ const countPages = async function (limit_V, filters_V) {
 
         
         formattedQuery = format(query, ...values);
-        console.log(formattedQuery);
         const { rows: countResults } = await pool.query(formattedQuery);
         total_rows = parseInt(countResults[0].count, 10);
 
@@ -74,8 +70,6 @@ const countPages = async function (limit_V, filters_V) {
         total_rows = parseInt(countResults[0].count, 10);
     }
 
-    console.log("total_rows :"+total_rows);
-    console.log("limit :"+limit);
     total_pages = limit > 0 ? Math.ceil(total_rows / limit) : 1;
     console.log("products.model.countPages: End");
     return total_pages;
@@ -86,9 +80,7 @@ const findAllCategory_Products = async function(){
 
     console.log("products.model.findAllCategory_Products: Start");
     const query = "SELECT * FROM category";
-    console.log("antes del pool.query");
     const {rows} = await pool.query(query);
-    console.log("despues del pool.query");
     console.log("products.model.findAllCategory_Products: End");
     return rows;
 }
@@ -119,24 +111,14 @@ const findAllByFilterPagination_Products = async function (filters_V, pagination
     let formattedQuery;
 
     console.log("products.model.findAllByFilterPagination_Products: Verifying category and search");
-    console.log(category);
-    console.log(search);
-    console.log(orderby);
-    console.log(order);
-    console.log(limit);
-    console.log(page);
 
     if(category || search){
         
-        console.log(category);
-        console.log(search);
-
         query = 'SELECT * FROM products WHERE';
 
         if (category) {
 
             id_category = await findIdCategoryByCategory_Products(category);
-            console.log("idcategory :"+id_category);
             values.push(id_category);
             queryValues1.push("id_category = %s");
         }

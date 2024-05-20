@@ -25,15 +25,12 @@ const VerifyFilterPagination = async function (data){
         
         
         const categories = await productsModel.findAllCategory_Products();
-        console.log("categories: ");
-        console.log(categories);
 
         // Verificando category
         console.log("products.controller.VerifyFilterPagination: Verifying category");
         if(category && category != "" && category != undefined){
 
             if(isNaN(category)){
-                console.log("category: "+category);
                 console.log("products.controller.VerifyFilterPagination: Verifying category isNaN");
                 let index_category = null;
 
@@ -43,15 +40,12 @@ const VerifyFilterPagination = async function (data){
                     }
                 });
 
-                console.log("index :"+index_category);
-                
-
                 if(!isNaN(index_category)){
                     category_V = categories[index_category].name;
                 }else{
                     category_V = null;
                 }
-                console.log("category_V :"+category_V);
+
             }   
             else{
 
@@ -111,7 +105,6 @@ const VerifyFilterPagination = async function (data){
 
             }else if(page < 1){
 
-                console.log("por aquí2");
                 page_V = 1;
 
             }else if (total_pages < page){
@@ -178,21 +171,7 @@ const findAllByFilterPagination_Products = async function (req, res){
         console.log("products.controller.findAllByFilterPagination_Products: Start");
         const {category, search, orderby, limit, page} = await req.query;
 
-        console.log(category);
-        console.log(search);
-        console.log(orderby);
-        console.log(limit);
-        console.log(page);
-
         const {category_V, search_V, orderby_V, order_V, limit_V, page_V, total_pages} = await VerifyFilterPagination({category, search, orderby, limit, page});
-
-        console.log(category_V);
-        console.log(search_V);
-        console.log(orderby_V);
-        console.log(order_V);
-        console.log(limit_V);
-        console.log(page_V);
-        console.log(total_pages);
 
         const filters_V = {category: category_V, search: search_V};
         const pagination_V = {orderby: orderby_V, order: order_V, limit: limit_V, page: page_V};

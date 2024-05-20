@@ -201,8 +201,6 @@ const removeById_Sale = async function(req, res){
         const {user_id, user_email} = jwt.decode(token);
         const {sale_id} = await req.query;
         const sale_exist = await productsModel.findById_Product(sale_id);
-        console.log(sale_id);
-        console.log(sale_exist);
 
         let sale_deleted;
 
