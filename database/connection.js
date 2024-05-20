@@ -18,7 +18,8 @@ export const pool = new Pool({
     database: process.env.PGDATABASE,
     password: process.env.PGPASSWORD,
     port: process.env.PGPORT,
-    allowExitOnIdle: true
+    allowExitOnIdle: true,
+    ssl: true
 });
 
 // ----------------------------------------------------------
