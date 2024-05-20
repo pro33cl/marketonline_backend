@@ -12,10 +12,9 @@ import appRoute from "./routes/app.routes.js";
 // ----------------------------------------------------------
 
 const app = express();
-const SERVER = process.env.SERVER || "http://localhost:";
 const PORT = process.env.PORT || 3000;
 const URLFRONTEND = process.env.FRONTEND_URL || "http://localhost:5173/";
-
+const URLBACKEND = process.env.BACKEND_URL || "http://localhost:3000/";
 // ----------------------------------------------------------
 // MIDDLEWARES
 // ----------------------------------------------------------
@@ -37,5 +36,5 @@ app.use((req,res)=>{
 
 app.listen(PORT, ()=>{
     console.log(`SERVER BACKEND ON, PORT: ${PORT}`)
-    console.log(`Server: ${SERVER}${PORT}`)
+    console.log(`Server: ${URLBACKEND}`)
 });

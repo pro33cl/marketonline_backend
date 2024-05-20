@@ -19,8 +19,7 @@ import {unlink} from 'fs/promises';
 const CURRENT_DIR = dirname(fileURLToPath(import.meta.url));
 const FILETYPES = ['image/jpeg','image/png','image/jpg'];
 
-const SERVER = process.env.SERVER || "http://localhost:";
-const PORT = process.env.PORT || 3000;
+const URLBACKEND = process.env.BACKEND_URL || "http://localhost:3000/";
 
 // ----------------------------------------------------------
 // FUNCIONES
@@ -139,7 +138,7 @@ const post_Image = async function(req, res){
 
             sale_exist = await productsModel.findById_Product(sale_id);
             const image_name = file.filename;
-            const image_url = `${SERVER}${PORT}/productimage/${sale_id}`;
+            const image_url = `${URLBACKEND}/productimage/${sale_id}`;
             sale_exist.image_name = image_name;
             sale_exist.image = image_url;
             sale_updated = await salesModel.updateById_Sale(sale_id, sale_exist);
